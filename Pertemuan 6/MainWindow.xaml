@@ -1,0 +1,68 @@
+﻿<Window x:Class="StudentRegistrationApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistem Registrasi Mahasiswa" 
+        Height="650" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Background="#F3F4F6">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="25">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock Text="Form Pendaftaran" FontSize="22" FontWeight="Bold" Margin="0,0,0,20"/>
+
+                    <TextBlock Text="NIM" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtNim" Height="38" Padding="8,5" Margin="0,0,0,15"/>
+
+                    <TextBlock Text="Nama Lengkap" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtNama" Height="38" Padding="8,5" Margin="0,0,0,15"/>
+
+                    <TextBlock Text="Program Studi" Margin="0,0,0,5"/>
+                    <ComboBox x:Name="cmbProdi" Height="38" Margin="0,0,0,15"
+                              DisplayMemberPath="ProgramName" SelectedValuePath="ProgramId"/>
+
+                    <TextBlock Text="Jenis Kelamin" Margin="0,0,0,5"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
+                        <RadioButton x:Name="rbLaki" Content="Laki-laki" Margin="0,0,20,0"/>
+                        <RadioButton x:Name="rbPerempuan" Content="Perempuan"/>
+                    </StackPanel>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Simpan Data" Click="BtnSimpan_Click" Height="40" Background="#4F46E5" Foreground="White"/>
+                        <Button Grid.Column="2" Content="Reset Form" Click="BtnReset_Click" Height="40" Background="#E5E7EB"/>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <Border Grid.Column="2" Background="White" CornerRadius="12" Padding="25">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Data Mahasiswa" FontSize="22" FontWeight="Bold" Margin="0,0,0,15"/>
+
+                <ListBox x:Name="lstMahasiswa" Grid.Row="1" Margin="0,0,0,15"
+                         DisplayMemberPath="DisplayText" SelectedValuePath="StudentId"/>
+
+                <Button Grid.Row="2" Content="Hapus Terpilih" Click="BtnHapus_Click" Height="40" Background="#EF4444" Foreground="White"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
