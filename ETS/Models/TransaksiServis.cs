@@ -23,7 +23,7 @@ public class TransaksiServis : ObservableObject
         get => _statusServis;
         set
         {
-            if (value == null) return; // abaikan null dari recycling ComboBox di DataGrid
+            if (value == null) return;
             SetProperty(ref _statusServis, value);
         }
     }
